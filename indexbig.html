@@ -1,3 +1,4 @@
+<!-- filepath: /home/natalia/Documents/GitHub/MenuOrange/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,9 +59,14 @@
       background: none;
       border: none;
       color: #ff8c00;
-      font-size: 1.2rem;
+      font-size: 2.5rem; /* Increased icon size */
       cursor: pointer;
       padding: 5px 10px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .top-nav .dropdown-menu {
       display: none;
@@ -111,20 +117,32 @@
     }
     .footer-nav .nav-group {
       display: flex;
-      gap: 15px;
+      gap: 30px; /* Increased gap for touch usability */
+      flex: 1 1 0;
+      justify-content: center;
     }
     .footer-nav .nav-item {
       color: #ff8c00;
-      font-size: 1.5rem;
+      font-size: 3rem; /* Increased icon size */
       cursor: pointer;
       transition: transform 0.2s;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .footer-nav .nav-item:hover {
       transform: scale(1.2);
     }
     .footer-nav .home-btn {
-      font-size: 2rem;
+      font-size: 4rem; /* Increased home icon size */
       transform: scale(1.5);
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     /* CRT Glow Effect */
     .glow {
@@ -137,14 +155,30 @@
       }
       .top-nav .start-btn,
       .top-nav .dropdown-btn {
-        font-size: 1rem;
+        font-size: 2rem;
+        width: 48px;
+        height: 48px;
       }
       .footer-nav .nav-item {
-        font-size: 1.3rem;
+        font-size: 2.2rem;
+        width: 48px;
+        height: 48px;
       }
       .footer-nav .home-btn {
-        font-size: 1.8rem;
+        font-size: 2.8rem;
+        width: 56px;
+        height: 56px;
       }
+      .footer-nav .nav-group {
+        gap: 18px;
+      }
+    }
+    /* Make navbars use all available horizontal space */
+    .footer-nav,
+    .top-nav {
+      box-sizing: border-box;
+      width: 100vw;
+      max-width: 100vw;
     }
   </style>
 </head>
