@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Menu</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Google Fonts for pixelated CRT-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      color: #ff8c00; /* Orange CRT color */
+      font-family: 'VT323', monospace; /* Pixelated CRT font */
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Top Navbar */
+    .top-nav {
+      background-color: #1a1a1a;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff8c00;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-nav .title {
+      font-size: 1.5rem;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .top-nav .start-btn {
+      font-family: 'VT323', monospace;
+      background: none;
+      border: none;
+      color: #ff8c00;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+    .top-nav .dropdown {
+      position: relative;
+    }
+    .top-nav .dropdown-btn {
+      background: none;
+      border: none;
+      color: #ff8c00;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+    .top-nav .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #1a1a1a;
+      border: 2px solid #ff8c00;
+      list-style: none;
+      padding: 10px;
+      z-index: 1001;
+    }
+    .top-nav .dropdown-menu.show {
+      display: block;
+    }
+    .top-nav .dropdown-menu li {
+      margin: 5px 0;
+    }
+    .top-nav .dropdown-menu a {
+      color: #ff8c00;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .top-nav .dropdown-menu a:hover {
+      text-decoration: underline;
+    }
+    /* Main Content */
+    .main-content {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px; /* Space for top navbar */
+      margin-bottom: 60px; /* Space for footer navbar */
+      text-align: center;
+    }
+    /* Footer Navbar */
+    .footer-nav {
+      background-color: #1a1a1a;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid #ff8c00;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .footer-nav .nav-group {
+      display: flex;
+      gap: 15px;
+    }
+    .footer-nav .nav-item {
+      color: #ff8c00;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .footer-nav .nav-item:hover {
+      transform: scale(1.2);
+    }
+    .footer-nav .home-btn {
+      font-size: 2rem;
+      transform: scale(1.5);
+    }
+    /* CRT Glow Effect */
+    .glow {
+      text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00;
+    }
+    /* Mobile Optimization */
+    @media (max-width: 600px) {
+      .top-nav .title {
+        font-size: 1.2rem;
+      }
+      .top-nav .start-btn,
+      .top-nav .dropdown-btn {
+        font-size: 1rem;
+      }
+      .footer-nav .nav-item {
+        font-size: 1.3rem;
+      }
+      .footer-nav .home-btn {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="top-nav">
+    <button class="start-btn glow">Start</button>
+    <div class="title glow">CMD</div>
+    <div class="dropdown">
+      <button class="dropdown-btn glow"><i class="fas fa-bars"></i></button>
+      <ul class="dropdown-menu">
+        <li><a href="#" class="glow">Change Color</a></li>
+        <li><a href="#" class="glow">Change Language</a></li>
+        <li><a href="#" class="glow">Dark Mode Off</a></li>
+        <li><a href="#" class="glow">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1 class="glow">System Menu</h1>
+  </main>
+  <!-- Footer Navbar -->
+  <nav class="footer-nav">
+    <div class="nav-group">
+      <i class="fas fa-cog nav-item glow" title="Option 1"></i>
+      <i class="fas fa-file nav-item glow" title="Option 2"></i>
+      <i class="fas fa-folder nav-item glow" title="Option 3"></i>
+    </div>
+    <i class="fas fa-home home-btn glow" title="Home"></i>
+    <div class="nav-group">
+      <i class="fas fa-envelope nav-item glow" title="Option 4"></i>
+      <i class="fas fa-user nav-item glow" title="Option 5"></i>
+      <i class="fas fa-bell nav-item glow" title="Option 6"></i>
+    </div>
+  </nav>
+  <script>
+    // Dropdown menu toggle
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
